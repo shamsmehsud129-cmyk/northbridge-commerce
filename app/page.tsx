@@ -91,11 +91,19 @@ const reasons = [
   "Long-term partnership mindset",
 ];
 
+const images = [
+  "/images/pexels-fauxels-3184431.jpg",
+  "/images/pexels-imeenhae-2610109-4277794.jpg",
+  "/images/pexels-tiger-lily-4483560.jpg",
+  "/images/pexels-tiger-lily-4483864.jpg",
+  "/images/pexels-tiger-lily-4487383.jpg",
+];
+
 export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="hero">
+      <section className="hero hero-premium">
         <div className="container hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">
@@ -133,56 +141,40 @@ export default function Home() {
             </div>
           </div>
 
-          {/* IMAGE-READY HERO VISUAL */}
-          <div
-            className="hero-art"
-            aria-label="Northbridge Commerce e-commerce sourcing and retail partnerships"
-          >
-            <div className="hero-art-glow" />
+          {/* HERO VIDEO */}
+          <div className="hero-video-wrap">
+            <video
+              className="hero-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={images[0]}
+              aria-label="Northbridge Commerce sourcing and retail operations"
+            >
+              <source
+                src="/images/6169090-uhd_3840_2160_25fps.mp4"
+                type="video/mp4"
+              />
+            </video>
 
-            <div className="art-panel">
-              <div className="art-top">
-                <div>
-                  <span className="art-label">NORTHBRIDGE</span>
-                  <strong>Commerce Network</strong>
-                </div>
-
-                <div className="art-status">
-                  <span />
-                  UK Market
-                </div>
+            <div className="hero-video-overlay">
+              <div>
+                <span>NORTHBRIDGE</span>
+                <strong>Commerce Group</strong>
               </div>
 
-              <div className="art-map">
-                <div className="map-ring ring-one" />
-                <div className="map-ring ring-two" />
-                <div className="map-line line-one" />
-                <div className="map-line line-two" />
-                <div className="map-node node-one" />
-                <div className="map-node node-two" />
-                <div className="map-node node-three" />
-
-                <div className="central-node">
-                  <Globe2 size={24} />
-                </div>
+              <div className="video-status">
+                <span />
+                UK MARKET
               </div>
+            </div>
 
-              <div className="art-bottom">
-                <div>
-                  <small>SUPPLY</small>
-                  <strong>Connected</strong>
-                </div>
-
-                <div>
-                  <small>RETAIL</small>
-                  <strong>Opportunity</strong>
-                </div>
-
-                <div>
-                  <small>PARTNERS</small>
-                  <strong>Long-Term</strong>
-                </div>
-              </div>
+            <div className="hero-video-caption">
+              <span>SUPPLY</span>
+              <span>RETAIL</span>
+              <span>PARTNERSHIPS</span>
             </div>
           </div>
         </div>
@@ -194,6 +186,7 @@ export default function Home() {
           <div className="intro-grid">
             <div>
               <p className="eyebrow">NORTHBRIDGE COMMERCE GROUP</p>
+
               <h2 className="display-title">
                 A focused approach to sourcing, supply and online retail.
               </h2>
@@ -221,6 +214,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* IMAGE STORY */}
+      <section className="image-story">
+        <div className="container">
+          <div className="image-story-header">
+            <div>
+              <p className="eyebrow">THE NORTHBRIDGE NETWORK</p>
+
+              <h2>
+                Connecting capable businesses across the supply chain.
+              </h2>
+            </div>
+
+            <p>
+              From product discovery and supplier relationships to retail
+              opportunity, we focus on building dependable commercial
+              connections.
+            </p>
+          </div>
+
+          <div className="image-mosaic">
+            <div className="mosaic-main">
+              <img
+                src={images[0]}
+                alt="Professional business team working together"
+                loading="lazy"
+              />
+
+              <div className="mosaic-label">
+                <span>01</span>
+                <strong>Business Relationships</strong>
+              </div>
+            </div>
+
+            <div className="mosaic-side">
+              <div className="mosaic-card">
+                <img
+                  src={images[1]}
+                  alt="Professional commercial environment"
+                  loading="lazy"
+                />
+
+                <div className="mosaic-label">
+                  <span>02</span>
+                  <strong>Commercial Evaluation</strong>
+                </div>
+              </div>
+
+              <div className="mosaic-card">
+                <img
+                  src={images[2]}
+                  alt="Products prepared for online retail"
+                  loading="lazy"
+                />
+
+                <div className="mosaic-label">
+                  <span>03</span>
+                  <strong>Quality Products</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHO WE WORK WITH */}
       <section className="section alt">
         <div className="container">
@@ -231,17 +288,18 @@ export default function Home() {
           />
 
           <div className="card-grid">
-            {audiences.map(({ icon: Icon, title, text }) => (
+            {audiences.map(({ icon: Icon, title, text }, index) => (
               <div className="card premium-card" key={title}>
                 <div className="icon-box">
                   <Icon size={19} />
                 </div>
 
                 <p className="card-index">
-                  {String(audiences.findIndex((item) => item.title === title) + 1).padStart(2, "0")}
+                  {String(index + 1).padStart(2, "0")}
                 </p>
 
                 <h3>{title}</h3>
+
                 <p>{text}</p>
 
                 <span className="card-arrow">
@@ -274,6 +332,7 @@ export default function Home() {
                 </div>
 
                 <h3>{title}</h3>
+
                 <p>{text}</p>
               </div>
             ))}
@@ -281,21 +340,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VISUAL STORY PLACEHOLDER */}
-      <section className="media-section">
+      {/* SECOND VIDEO */}
+      <section className="media-section media-video-section">
         <div className="container">
-          <div className="media-panel">
-            <div className="media-content">
+          <div className="media-video-panel">
+            <video
+              className="secondary-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={images[3]}
+              aria-label="Northbridge Commerce retail and supply showcase"
+            >
+              <source
+                src="/images/6169085-uhd_2160_3840_25fps.mp4"
+                type="video/mp4"
+              />
+            </video>
+
+            <div className="secondary-video-overlay">
               <p className="eyebrow">THE NORTHBRIDGE APPROACH</p>
 
               <h2>
-                Connecting supply with commercially relevant opportunity.
+                From supply to opportunity, built around better connections.
               </h2>
 
               <p>
-                From the first supplier conversation to the development of a
-                long-term commercial relationship, we focus on clarity,
-                suitability and dependable execution.
+                We focus on clarity, suitability and dependable execution at
+                every stage of the commercial relationship.
               </p>
 
               <Link className="button button-light" href="/how-we-work">
@@ -303,27 +377,59 @@ export default function Home() {
                 <ArrowUpRight size={17} />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="media-visual">
-              <div className="media-orbit orbit-one" />
-              <div className="media-orbit orbit-two" />
+      {/* PRODUCT / RETAIL IMAGES */}
+      <section className="section">
+        <div className="container">
+          <div className="visual-grid">
+            <div className="visual-copy">
+              <p className="eyebrow">QUALITY-LED SOURCING</p>
 
-              <div className="media-center">
-                <Globe2 size={34} />
-                <span>UK RETAIL</span>
+              <h2>
+                Good commercial opportunities start with the right products.
+              </h2>
+
+              <p>
+                We consider product quality, market positioning, pricing,
+                supply capability and the strength of the underlying
+                relationship before pursuing an opportunity.
+              </p>
+
+              <div className="check-list">
+                <div>
+                  <CheckCircle2 size={18} />
+                  <span>Product suitability</span>
+                </div>
+
+                <div>
+                  <CheckCircle2 size={18} />
+                  <span>Supplier reliability</span>
+                </div>
+
+                <div>
+                  <CheckCircle2 size={18} />
+                  <span>Commercial potential</span>
+                </div>
               </div>
+            </div>
 
-              <div className="media-point point-a">
-                <Factory size={16} />
-              </div>
+            <div className="visual-image-stack">
+              <img
+                className="visual-image-large"
+                src={images[3]}
+                alt="Products and retail presentation"
+                loading="lazy"
+              />
 
-              <div className="media-point point-b">
-                <PackageCheck size={16} />
-              </div>
-
-              <div className="media-point point-c">
-                <Store size={16} />
-              </div>
+              <img
+                className="visual-image-small"
+                src={images[4]}
+                alt="Online retail products"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -342,8 +448,11 @@ export default function Home() {
             {process.map(([no, title, text]) => (
               <div className="step" key={no}>
                 <span className="step-no">{no}</span>
+
                 <h3>{title}</h3>
+
                 <p>{text}</p>
+
                 <div className="step-line" />
               </div>
             ))}
