@@ -7,7 +7,7 @@ import { site } from "../lib/site";
 export const metadata: Metadata = {
   title: { default: site.name, template: `%s | ${site.shortName}` },
   description: site.description,
-  metadataBase: new URL("https://example.co.uk"),
+ metadataBase: new URL("https://northbridge-commerce.vercel.app"),
   openGraph: {
     title: site.name,
     description: site.description,
