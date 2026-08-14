@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s | ${site.shortName}` },
   description: site.description,
  metadataBase: new URL("https://northbridge-commerce.vercel.app"),
+verification: {
+  google: "1AAeNkj4QYQPC1q3zpPZUItkdDJLsyol-HRwS5yZ7RE",
+},
   openGraph: {
     title: site.name,
     description: site.description,
