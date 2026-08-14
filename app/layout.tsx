@@ -12,15 +12,17 @@ verification: {
   google: "1AAeNkj4QYQPC1q3zpPZUItkdDJLsyol-HRwS5yZ7RE",
 },
   openGraph: {
-    title: site.name,
-    description: site.description,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.name,
-    description: site.description,
-  },
+  title: site.name,
+  description: site.description,
+  type: "website",
+  images: ["/og-image.png"],
+},
+ twitter: {
+  card: "summary_large_image",
+  title: site.name,
+  description: site.description,
+  images: ["/og-image.png"],
+},
   icons: {
     icon: "/icon.svg",
   },
