@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -8,6 +9,11 @@ import {
   PackageCheck,
   CheckCircle2,
 } from "lucide-react";
+export const metadata: Metadata = {
+  title: "E-Commerce Sourcing & Wholesale Services",
+  description:
+    "Explore Northbridge Commerce services including product sourcing, supplier partnerships, commercial evaluation and quality-led support for UK online retail.",
+};
 
 const services = [
   {
