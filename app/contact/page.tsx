@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import EnquiryForm from "../../components/EnquiryForm";
 import { site } from "@/lib/site";
+export const metadata: Metadata = {
+  title: "Contact Northbridge Commerce | Business Enquiries",
+  description:
+    "Contact Northbridge Commerce for UK e-commerce sourcing, supplier partnerships, wholesale opportunities and business enquiries.",
+};
 
 export default function Contact() {
   return <>
