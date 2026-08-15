@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -10,6 +11,12 @@ import {
   Globe2,
   Factory,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "UK E-Commerce Sourcing & Wholesale",
+  description:
+    "Northbridge Commerce provides UK-focused e-commerce sourcing, product research and wholesale supplier partnerships for online retail opportunities.",
+};
 import SectionHeading from "../components/SectionHeading";
 import CTA from "../components/CTA";
 
