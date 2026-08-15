@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { site } from "../lib/site";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://northbridge-commerce.vercel.app"),
@@ -78,6 +79,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+ <Analytics />
       </body>
     </html>
   );
