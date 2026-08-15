@@ -40,46 +40,46 @@ const audiences = [
 const services = [
   {
     icon: Search,
-    title: "Product & Supplier Sourcing",
-    text: "Identifying relevant products and supply partners with the potential to perform in the UK online retail market.",
+    title: "Amazon Wholesale Sourcing",
+    text: "Finding product opportunities with commercial potential for UK online retail.",
   },
   {
     icon: BarChart3,
-    title: "Commercial Evaluation",
-    text: "Reviewing product positioning, pricing, supply capability and broader commercial suitability.",
+    title: "Supplier Partnerships",
+    text: "Building professional relationships with suitable wholesalers and suppliers.",
   },
   {
     icon: Handshake,
-    title: "Retail Partnerships",
-    text: "Connecting suitable businesses through clear, professional and commercially focused relationships.",
+    title: "Product Research",
+    text: "Analysing market demand, competition and commercial suitability.",
   },
   {
     icon: ShieldCheck,
-    title: "Quality-Led Approach",
-    text: "Prioritising dependable supply, product quality, communication and relationships built for the long term.",
+    title: "Quality Focus",
+    text: "Selecting products and supply opportunities with quality and long-term potential in mind.",
   },
 ];
 
 const process = [
   [
     "01",
-    "Discover",
-    "We identify products, brands and suppliers that may offer genuine commercial potential.",
+    "Research",
+    "Find suitable product opportunities for the UK market.",
   ],
   [
     "02",
-    "Evaluate",
-    "We consider quality, positioning, pricing, supply capability and market suitability.",
+    "Analyse",
+    "Check demand, competition, pricing and commercial suitability.",
   ],
   [
     "03",
-    "Connect",
-    "We establish clear communication between suitable commercial partners.",
+    "Source",
+    "Source with suitable suppliers and sourcing partners.",
   ],
   [
     "04",
-    "Develop",
-    "We work towards sustainable opportunities through dependable long-term relationships.",
+    "Scale",
+    "Scale successful product opportunities with a long-term approach.",
   ],
 ];
 
@@ -206,7 +206,7 @@ export default function Home() {
               </p>
 
               <Link className="text-link" href="/about">
-                Discover Northbridge
+                Research Northbridge
                 <ArrowUpRight size={16} />
               </Link>
             </div>
@@ -222,7 +222,7 @@ export default function Home() {
               <p className="eyebrow">THE NORTHBRIDGE NETWORK</p>
 
               <h2>
-                Connecting capable businesses across the supply chain.
+                Sourceing capable businesses across the supply chain.
               </h2>
             </div>
 
@@ -257,7 +257,7 @@ export default function Home() {
 
                 <div className="mosaic-label">
                   <span>02</span>
-                  <strong>Commercial Evaluation</strong>
+                  <strong>Supplier Partnerships</strong>
                 </div>
               </div>
 
@@ -526,3 +526,4 @@ export default function Home() {
     </>
   );
 }
+

@@ -8,6 +8,7 @@ import { site } from "../lib/site";
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
   { href: "/how-we-work", label: "How We Work" },
   { href: "/partners", label: "Partner With Us" },
   { href: "/contact", label: "Contact" }
@@ -23,7 +24,7 @@ export default function Navbar() {
           <span className="brand-mark">N</span>
           <span>
             <strong>{site.shortName}</strong>
-            <small>COMMERCE GROUP</small>
+            <small>UK E-COMMERCE</small>
           </span>
         </Link>
 
@@ -53,4 +54,8 @@ export default function Navbar() {
     </header>
   );
 }
+
+
+
+
 
