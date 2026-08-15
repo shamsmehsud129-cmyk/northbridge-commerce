@@ -1,41 +1,17 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Factory,
+  Search,
   Handshake,
   PackageCheck,
-  Store,
-  Search,
   BarChart3,
   ShieldCheck,
-  Globe2,
   CheckCircle2,
+  Globe2,
+  Factory,
 } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import CTA from "../components/CTA";
-
-const audiences = [
-  {
-    icon: Store,
-    title: "Brands",
-    text: "We work with established and emerging brands seeking credible routes into UK online retail.",
-  },
-  {
-    icon: Factory,
-    title: "Manufacturers",
-    text: "We build direct relationships with capable manufacturers focused on quality, consistency and dependable supply.",
-  },
-  {
-    icon: PackageCheck,
-    title: "Wholesalers & Distributors",
-    text: "We source commercially relevant products from trusted supply partners with strong market potential.",
-  },
-  {
-    icon: Handshake,
-    title: "Strategic Partners",
-    text: "We develop professional relationships designed around clarity, reliability and long-term opportunity.",
-  },
-];
 
 const services = [
   {
@@ -44,12 +20,12 @@ const services = [
     text: "Finding product opportunities with commercial potential for UK online retail.",
   },
   {
-    icon: BarChart3,
+    icon: Handshake,
     title: "Supplier Partnerships",
     text: "Building professional relationships with suitable wholesalers and suppliers.",
   },
   {
-    icon: Handshake,
+    icon: BarChart3,
     title: "Product Research",
     text: "Analysing market demand, competition and commercial suitability.",
   },
@@ -74,21 +50,20 @@ const process = [
   [
     "03",
     "Source",
-    "Source with suitable suppliers and sourcing partners.",
+    "Connect with suitable suppliers and sourcing partners.",
   ],
   [
     "04",
     "Scale",
-    "Scale successful product opportunities with a long-term approach.",
+    "Develop successful product opportunities with a long-term approach.",
   ],
 ];
 
-const reasons = [
-  "UK online retail market focus",
-  "Independent and commercially focused approach",
-  "Quality-led supplier evaluation",
-  "Professional business communication",
-  "Long-term partnership mindset",
+const trustSignals = [
+  "UK Market Focus",
+  "Professional Supplier Research",
+  "Quality-Based Selection",
+  "Long-Term Business Approach",
 ];
 
 const images = [
@@ -111,37 +86,34 @@ export default function Home() {
             </p>
 
             <h1>
-              Building better routes from quality products to UK online
-              retail.
+              Sourcing Profitable Products For UK Online Retailers
             </h1>
 
             <p className="lead">
-              Northbridge Commerce Group works with brands, manufacturers,
-              wholesalers and trusted suppliers to identify commercially
-              relevant opportunities across the UK e-commerce market.
+              We identify, evaluate and source quality products from suitable
+              suppliers for the UK e-commerce market.
             </p>
 
             <div className="actions">
-              <Link className="button button-dark" href="/partners">
-                Partner With Us
+              <Link className="button button-dark" href="/contact">
+                Contact Us
                 <ArrowUpRight size={18} />
               </Link>
 
-              <Link className="button button-outline" href="/how-we-work">
-                How We Work
+              <Link className="button button-outline" href="/partners">
+                Become a Partner
               </Link>
             </div>
 
             <div className="hero-meta">
               <span>UK Market Focus</span>
-              <span>•</span>
-              <span>Quality-Led Sourcing</span>
-              <span>•</span>
-              <span>Long-Term Partnerships</span>
+              <span>·</span>
+              <span>Quality-Based Sourcing</span>
+              <span>·</span>
+              <span>Long-Term Approach</span>
             </div>
           </div>
 
-          {/* HERO VIDEO */}
           <div className="hero-video-wrap">
             <video
               className="hero-video"
@@ -162,7 +134,7 @@ export default function Home() {
             <div className="hero-video-overlay">
               <div>
                 <span>NORTHBRIDGE</span>
-                <strong>Commerce Group</strong>
+                <strong>Commerce</strong>
               </div>
 
               <div className="video-status">
@@ -180,36 +152,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* TRUST SIGNALS */}
       <section className="section">
         <div className="container">
-          <div className="intro-grid">
-            <div>
-              <p className="eyebrow">NORTHBRIDGE COMMERCE GROUP</p>
+          <SectionHeading
+            eyebrow="WHY NORTHBRIDGE"
+            title="A practical approach to UK e-commerce sourcing."
+            text="We focus on product suitability, supplier relationships and commercial opportunities rather than making unsupported claims."
+          />
 
-              <h2 className="display-title">
-                A focused approach to sourcing, supply and online retail.
-              </h2>
-            </div>
+          <div className="card-grid">
+            {trustSignals.map((signal, index) => (
+              <div className="card premium-card" key={signal}>
+                <div className="icon-box">
+                  <CheckCircle2 size={19} />
+                </div>
 
-            <div className="intro-copy">
-              <p>
-                We help create clearer commercial connections between quality
-                supply and the UK online retail market.
-              </p>
+                <p className="card-index">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
 
-              <p>
-                Our work is centred on identifying suitable products,
-                evaluating commercial potential and developing dependable
-                relationships with businesses that value quality and
-                consistency.
-              </p>
+                <h3>{signal}</h3>
 
-              <Link className="text-link" href="/about">
-                Research Northbridge
-                <ArrowUpRight size={16} />
-              </Link>
-            </div>
+                <p>
+                  A straightforward business approach focused on quality,
+                  suitability and professional communication.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section className="section alt">
+        <div className="container">
+          <SectionHeading
+            eyebrow="WHAT WE DO"
+            title="Focused on products, suppliers and commercial opportunity."
+            text="Our work is centred around finding relevant products, evaluating opportunities and developing suitable supplier relationships."
+          />
+
+          <div className="service-grid">
+            {services.map(({ icon: Icon, title, text }, index) => (
+              <div className="service-item" key={title}>
+                <div className="service-number">
+                  0{index + 1}
+                </div>
+
+                <div className="service-icon">
+                  <Icon size={21} />
+                </div>
+
+                <h3>{title}</h3>
+
+                <p>{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -219,17 +218,16 @@ export default function Home() {
         <div className="container">
           <div className="image-story-header">
             <div>
-              <p className="eyebrow">THE NORTHBRIDGE NETWORK</p>
+              <p className="eyebrow">PRODUCT & SUPPLY</p>
 
               <h2>
-                Sourceing capable businesses across the supply chain.
+                Better sourcing starts with better commercial decisions.
               </h2>
             </div>
 
             <p>
-              From product discovery and supplier relationships to retail
-              opportunity, we focus on building dependable commercial
-              connections.
+              We look at products, suppliers, market suitability and
+              commercial potential before developing an opportunity.
             </p>
           </div>
 
@@ -278,115 +276,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHO WE WORK WITH */}
-      <section className="section alt">
-        <div className="container">
-          <SectionHeading
-            eyebrow="WHO WE WORK WITH"
-            title="Built around capable businesses and reliable supply."
-            text="We work across the supply chain with businesses that value professional communication, product quality and sustainable commercial relationships."
-          />
-
-          <div className="card-grid">
-            {audiences.map(({ icon: Icon, title, text }, index) => (
-              <div className="card premium-card" key={title}>
-                <div className="icon-box">
-                  <Icon size={19} />
-                </div>
-
-                <p className="card-index">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-
-                <h3>{title}</h3>
-
-                <p>{text}</p>
-
-                <span className="card-arrow">
-                  <ArrowUpRight size={16} />
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="WHAT WE DO"
-            title="From sourcing decisions to commercial relationships."
-            text="Our approach combines practical sourcing with careful commercial evaluation and professional partner development."
-          />
-
-          <div className="service-grid">
-            {services.map(({ icon: Icon, title, text }, index) => (
-              <div className="service-item" key={title}>
-                <div className="service-number">
-                  0{index + 1}
-                </div>
-
-                <div className="service-icon">
-                  <Icon size={21} />
-                </div>
-
-                <h3>{title}</h3>
-
-                <p>{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECOND VIDEO */}
-      <section className="media-section media-video-section">
-        <div className="container">
-          <div className="media-video-panel">
-            <video
-              className="secondary-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster={images[3]}
-              aria-label="Northbridge Commerce retail and supply showcase"
-            >
-              <source
-                src="/images/6169085-uhd_2160_3840_25fps.mp4"
-                type="video/mp4"
-              />
-            </video>
-
-            <div className="secondary-video-overlay">
-              <p className="eyebrow">THE NORTHBRIDGE APPROACH</p>
-
-              <h2>
-                From supply to opportunity, built around better connections.
-              </h2>
-
-              <p>
-                We focus on clarity, suitability and dependable execution at
-                every stage of the commercial relationship.
-              </p>
-
-              <Link className="button button-light" href="/how-we-work">
-                Explore Our Approach
-                <ArrowUpRight size={17} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCT / RETAIL IMAGES */}
+      {/* QUALITY FOCUS */}
       <section className="section">
         <div className="container">
           <div className="visual-grid">
             <div className="visual-copy">
-              <p className="eyebrow">QUALITY-LED SOURCING</p>
+              <p className="eyebrow">QUALITY-BASED SELECTION</p>
 
               <h2>
                 Good commercial opportunities start with the right products.
@@ -394,8 +289,8 @@ export default function Home() {
 
               <p>
                 We consider product quality, market positioning, pricing,
-                supply capability and the strength of the underlying
-                relationship before pursuing an opportunity.
+                supply capability and commercial suitability when reviewing
+                potential opportunities.
               </p>
 
               <div className="check-list">
@@ -412,6 +307,11 @@ export default function Home() {
                 <div>
                   <CheckCircle2 size={18} />
                   <span>Commercial potential</span>
+                </div>
+
+                <div>
+                  <CheckCircle2 size={18} />
+                  <span>Long-term opportunity</span>
                 </div>
               </div>
             </div>
@@ -435,13 +335,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* HOW WE WORK */}
       <section className="section alt">
         <div className="container">
           <SectionHeading
             eyebrow="HOW WE WORK"
-            title="A straightforward process, built around good decisions."
-            text="We keep the journey clear: discover relevant opportunities, evaluate them carefully, connect the right businesses and develop relationships with long-term potential."
+            title="A clear process from research to growth."
+            text="We keep the journey straightforward: research opportunities, analyse the market, source suitable suppliers and develop successful products."
           />
 
           <div className="steps premium-steps">
@@ -460,30 +360,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY NORTHBRIDGE */}
+      {/* MARKET FOCUS */}
       <section className="section">
         <div className="container split">
           <div>
-            <p className="eyebrow">WHY NORTHBRIDGE</p>
+            <p className="eyebrow">UK MARKET FOCUS</p>
 
             <h2 className="section-heading-title">
-              Professional sourcing with a long-term commercial perspective.
+              Built around the needs of modern UK online retail.
             </h2>
 
             <p className="section-description">
-              We believe strong retail opportunities start with good products,
-              dependable supply and clear communication between the businesses
-              involved.
+              Northbridge Commerce focuses on identifying quality products and
+              suitable supply relationships for opportunities in the UK
+              e-commerce market.
             </p>
 
-            <Link className="text-link" href="/about">
-              Learn more about us
+            <Link className="text-link" href="/how-we-work">
+              Explore How We Work
               <ArrowUpRight size={16} />
             </Link>
           </div>
 
           <div className="reason-list">
-            {reasons.map((reason, index) => (
+            {trustSignals.map((reason, index) => (
               <div className="reason-row" key={reason}>
                 <span>0{index + 1}</span>
 
@@ -497,25 +397,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* UK FOCUS */}
+      {/* BUSINESS NETWORK */}
       <section className="section alt">
+        <div className="container">
+          <SectionHeading
+            eyebrow="OUR NETWORK"
+            title="Working across the supply chain."
+            text="We welcome relevant conversations with brands, manufacturers, wholesalers and distributors that can support quality products and professional supply relationships."
+          />
+
+          <div className="card-grid">
+            <div className="card premium-card">
+              <div className="icon-box">
+                <Factory size={19} />
+              </div>
+
+              <h3>Manufacturers</h3>
+
+              <p>
+                Businesses with suitable products and dependable production
+                capabilities.
+              </p>
+            </div>
+
+            <div className="card premium-card">
+              <div className="icon-box">
+                <PackageCheck size={19} />
+              </div>
+
+              <h3>Wholesalers</h3>
+
+              <p>
+                Supply partners offering commercially relevant products for
+                online retail.
+              </p>
+            </div>
+
+            <div className="card premium-card">
+              <div className="icon-box">
+                <Handshake size={19} />
+              </div>
+
+              <h3>Brands & Partners</h3>
+
+              <p>
+                Professional businesses interested in developing sustainable
+                commercial opportunities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UK FOCUS */}
+      <section className="section">
         <div className="container uk-focus">
           <div className="uk-badge">
             <Globe2 size={25} />
           </div>
 
           <div>
-            <p className="eyebrow">UK MARKET FOCUS</p>
+            <p className="eyebrow">UK E-COMMERCE</p>
 
             <h2>
-              Built with the expectations of the UK online retail market in
-              mind.
+              Quality products. Suitable suppliers. Better opportunities.
             </h2>
 
             <p>
-              Northbridge Commerce Group is an independent e-commerce sourcing
-              and retail business focused on creating credible opportunities
-              between quality supply partners and online retail.
+              Northbridge Commerce is an independent e-commerce sourcing
+              business focused on creating credible opportunities between
+              quality supply partners and UK online retail.
             </p>
           </div>
         </div>
@@ -526,4 +477,3 @@ export default function Home() {
     </>
   );
 }
-
