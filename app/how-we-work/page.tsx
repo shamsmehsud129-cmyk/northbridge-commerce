@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import CTA from "../../components/CTA";
+export const metadata: Metadata = {
+  title: "How We Work | UK E-Commerce Sourcing",
+  description:
+    "Learn how Northbridge Commerce researches products, evaluates opportunities, works with suppliers and develops long-term UK e-commerce partnerships.",
+};
 
 const steps = [
   ["01","Research","We identify products, brands and categories with potential in the online retail market."],
