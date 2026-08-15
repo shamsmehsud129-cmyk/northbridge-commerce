@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { BadgeCheck, Boxes, Factory, Truck } from "lucide-react";
 import EnquiryForm from "../../components/EnquiryForm";
+export const metadata: Metadata = {
+  title: "Supplier Partnerships | Northbridge Commerce",
+  description:
+    "Partner with Northbridge Commerce for UK e-commerce opportunities. We work with brands, manufacturers, wholesalers and distributors with quality products and reliable supply.",
+};
 
 export default function Partners() {
   return <>
