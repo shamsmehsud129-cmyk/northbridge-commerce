@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import CTA from "../../components/CTA";
+
+export const metadata: Metadata = {
+  title: "About Northbridge Commerce | UK E-Commerce",
+  description:
+    "Learn about Northbridge Commerce, an independent UK e-commerce business focused on product sourcing, supplier relationships and online retail opportunities.",
+};
+
 
 export default function About() {
   return <>
