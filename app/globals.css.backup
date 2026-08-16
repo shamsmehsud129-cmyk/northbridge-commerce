@@ -1577,4 +1577,3 @@ video {
 
 
 
-.cta{min-height:360px}.cta-video{transform:scale(1.03);animation:ctaVideoDrift 18s ease-in-out infinite alternate;will-change:transform}.cta-overlay{background:linear-gradient(90deg,rgba(7,17,29,.94) 0%,rgba(7,17,29,.78) 42%,rgba(7,17,29,.58) 100%)}.cta-content{max-width:720px}.cta h2{margin-bottom:16px;text-wrap:balance}.cta p:not(.eyebrow){max-width:620px}.cta-button{position:relative;z-index:2;flex-shrink:0;transition:transform 220ms ease,box-shadow 220ms ease,background-color 220ms ease}.cta-button:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.22)}@keyframes ctaVideoDrift{0%{transform:scale(1.03) translate3d(0,0,0)}100%{transform:scale(1.08) translate3d(-1%,-.5%,0)}}@media (prefers-reduced-motion:reduce){.cta-video{animation:none;transform:scale(1.03)}.cta-button{transition:none}}

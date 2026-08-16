@@ -89,7 +89,7 @@ export default function Home() {
         <div className="container hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">
-              UK E-COMMERCE Ã‚Â· SOURCING & PARTNERSHIPS
+              UK E-COMMERCE Â· SOURCING & PARTNERSHIPS
             </p>
 
             <h1>
@@ -114,9 +114,9 @@ export default function Home() {
 
             <div className="hero-meta">
               <span>UK Market Focus</span>
-              <span>Ã‚Â·</span>
+              <span>Â·</span>
               <span>Quality-Based Sourcing</span>
-              <span>Ã‚Â·</span>
+              <span>Â·</span>
               <span>Long-Term Approach</span>
             </div>
           </div>
@@ -129,6 +129,7 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
+              poster={images[0]}
               aria-label="Northbridge Commerce sourcing and retail operations"
             >
               <source
@@ -278,16 +279,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            <div className="visual-image-stack">
-              <div className="visual-image-large">
-                <img src={images[1]} alt="Warehouse and product supply operations" />
-              </div>
-
-              <div className="visual-image-small">
-                <img src={images[2]} alt="Commercial product sourcing" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -434,8 +425,6 @@ export default function Home() {
     </>
   );
 }
-
-
 
 
 
