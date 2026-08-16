@@ -29,6 +29,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/amazon-wholesale-sourcing`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/product-sourcing-uk`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/uk-ecommerce-supplier-guide`,
+      lastModified: new Date(),
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
     },

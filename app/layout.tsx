@@ -71,6 +71,17 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: "https://northbridge-commerce.vercel.app",
+  logo: "https://northbridge-commerce.vercel.app/icon.svg",
+  description: site.description,
+  email: site.email,
+  telephone: site.phone,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -78,10 +89,21 @@ export default function RootLayout({
     <html lang="en-GB">
       <body>
         <Navbar />
+
         <main>{children}</main>
+
         <Footer />
- <Analytics />
-<GoogleAnalytics gaId="G-B3M92XR9L8" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+
+        <Analytics />
+
+        <GoogleAnalytics gaId="G-B3M92XR9L8" />
       </body>
     </html>
   );

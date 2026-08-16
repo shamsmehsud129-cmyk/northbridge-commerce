@@ -13,14 +13,18 @@ export default function Footer() {
               <small>{site.tagline}</small>
             </div>
           </div>
+
           <p className="footer-copy">
-            Building professional relationships across the UK e-commerce and online retail market.
+            Building professional relationships across the UK e-commerce and
+            online retail market through thoughtful sourcing and reliable
+            commercial communication.
           </p>
         </div>
 
         <div>
           <h4>Explore</h4>
           <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
           <Link href="/how-we-work">How We Work</Link>
           <Link href="/partners">Partner With Us</Link>
           <Link href="/contact">Contact</Link>
@@ -29,7 +33,7 @@ export default function Footer() {
         <div>
           <h4>Legal</h4>
           <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms & Conditions</Link>
+          <Link href="/terms">Terms &amp; Conditions</Link>
           <span>Cookie Policy</span>
         </div>
 
@@ -37,13 +41,16 @@ export default function Footer() {
           <h4>Business Enquiries</h4>
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <a href={`tel:${site.phone}`}>{site.phone}</a>
+          <small>We aim to respond within 24 to 48 hours.</small>
         </div>
       </div>
 
       <div className="footer-bottom">
         <span>
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+          Copyright {new Date().getFullYear()} {site.name}. All rights
+          reserved.
         </span>
+
         <span>{site.disclaimer}</span>
       </div>
     </footer>
