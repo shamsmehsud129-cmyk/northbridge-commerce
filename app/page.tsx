@@ -59,14 +59,12 @@ export default function Home() {
       <Navbar />
 
       <main className="overflow-hidden bg-[#fbf8f4] text-[#3f3029]">
-
         {/* HERO */}
         <section className="relative bg-[#f1e7df]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(109,76,65,0.13),transparent_30%),radial-gradient(circle_at_90%_30%,rgba(190,157,135,0.18),transparent_32%)]" />
 
           <div className="container relative">
             <div className="grid min-h-[650px] items-center gap-12 py-20 lg:grid-cols-[1fr_0.9fr] lg:py-24">
-
               {/* Copy */}
               <div className="max-w-2xl">
                 <div className="mb-7 flex items-center gap-3">
@@ -91,17 +89,18 @@ export default function Home() {
                   occasion wear.
                 </p>
 
-                <div className="mt-9 flex flex-wrap gap-4">
+                {/* MOBILE-SAFE CTA BUTTONS */}
+                <div className="mt-9 flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
                   <Link
                     href="/shop"
-                    className="shop-now-btn inline-flex"
+                    className="shop-now-btn inline-flex w-full sm:w-auto"
                   >
                     Shop Collection
                   </Link>
 
                   <Link
                     href="/fabrics"
-                    className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#cdb7a8] bg-[#fffaf6] px-6 text-sm font-bold text-[#6d4c41] transition-all hover:-translate-y-0.5 hover:bg-white"
+                    className="inline-flex w-full min-h-11 items-center justify-center rounded-xl border border-[#cdb7a8] bg-[#fffaf6] px-6 text-sm font-bold text-[#6d4c41] transition-all hover:-translate-y-0.5 hover:bg-white sm:w-auto"
                   >
                     Explore Fabrics
                   </Link>
@@ -116,15 +115,12 @@ export default function Home() {
 
               {/* Editorial Visual */}
               <div className="relative mx-auto hidden h-[520px] w-full max-w-[500px] lg:block">
-
                 <div className="absolute right-4 top-4 h-[430px] w-[310px] rotate-[7deg] rounded-[34px] bg-[#b99b88] shadow-2xl" />
 
                 <div className="absolute right-16 top-9 h-[445px] w-[315px] rotate-[-5deg] rounded-[34px] bg-[#795548] shadow-2xl shadow-[#5d4037]/25" />
 
                 <div className="absolute right-20 top-0 h-[455px] w-[320px] overflow-hidden rounded-[34px] bg-[#fffaf5] p-7 shadow-2xl">
-
                   <div className="flex h-full flex-col justify-between">
-
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#987968]">
                         New Collection
@@ -176,7 +172,6 @@ export default function Home() {
         {/* COLLECTIONS */}
         <section className="section">
           <div className="container">
-
             <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
               <div>
                 <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#9a7866]">
@@ -239,7 +234,6 @@ export default function Home() {
         {/* FEATURED PRODUCTS */}
         <section className="section bg-[#fffdf9]">
           <div className="container">
-
             <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
               <div>
                 <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#9a7866]">
@@ -266,7 +260,6 @@ export default function Home() {
                   className="group overflow-hidden rounded-[26px] border border-[#e8ddd5] bg-[#fffaf6] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div className="relative aspect-[4/4.5] overflow-hidden bg-[#eee2d9]">
-
                     <span className="absolute left-4 top-4 z-10 rounded-full bg-[#fffaf5]/90 px-3 py-1.5 text-[9px] font-black tracking-wider text-[#765548] backdrop-blur">
                       {product.badge}
                     </span>
@@ -322,11 +315,9 @@ export default function Home() {
         <section className="section">
           <div className="container">
             <div className="relative overflow-hidden rounded-[34px] bg-[#4f3930]">
-
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(218,190,170,0.25),transparent_32%)]" />
 
               <div className="relative grid items-center gap-12 px-7 py-16 sm:px-12 lg:grid-cols-[1fr_0.7fr] lg:px-16 lg:py-20">
-
                 <div className="max-w-2xl">
                   <p className="text-xs font-black uppercase tracking-[0.28em] text-[#d8bdab]">
                     The KHALÉ Story
@@ -365,7 +356,6 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -374,7 +364,6 @@ export default function Home() {
         {/* BENEFITS */}
         <section className="section bg-[#fffdf9]">
           <div className="container">
-
             <div className="grid gap-5 md:grid-cols-3">
               {[
                 {
@@ -408,16 +397,13 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
           </div>
         </section>
 
         {/* FINAL CTA */}
         <section className="section">
           <div className="container">
-
             <div className="relative overflow-hidden rounded-[34px] bg-[#eadbd0] px-7 py-16 text-center sm:px-12">
-
               <div className="absolute left-1/2 top-0 h-56 w-56 -translate-x-1/2 rounded-full bg-[#fffaf6]/30 blur-3xl" />
 
               <div className="relative">
@@ -445,11 +431,9 @@ export default function Home() {
                   Shop Now
                 </Link>
               </div>
-
             </div>
           </div>
         </section>
-
       </main>
     </>
   );
