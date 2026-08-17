@@ -1,43 +1,55 @@
 ﻿import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
-const categories = [
-  { name: "Electronics", icon: '[E]' },
-  { name: "Fashion", icon: '[F]' },
-  { name: "Home & Living", icon: '[H]' },
-  { name: "Beauty", icon: '[*]' },
-  { name: "Gaming", icon: '[G]' },
-  { name: "Accessories", icon: '[A]' },
+const collections = [
+  {
+    title: "Men's Collection",
+    subtitle: "Refined fabrics for modern tailoring.",
+    href: "/men",
+    tone: "bg-[#d8c5b8]",
+  },
+  {
+    title: "Women's Collection",
+    subtitle: "Elegant textures made to stand out.",
+    href: "/women",
+    tone: "bg-[#e5d7ce]",
+  },
+  {
+    title: "Premium Fabrics",
+    subtitle: "Selected quality, sold by the meter.",
+    href: "/fabrics",
+    tone: "bg-[#cdb5a5]",
+  },
 ];
 
 const products = [
   {
-    name: "Wireless Pro Earbuds",
-    category: "Audio",
-    price: "Rs. 7,999",
-    oldPrice: "Rs. 9,499",
-    badge: "Best Seller",
+    name: "Signature Wash & Wear",
+    category: "Men's Fabric",
+    price: "Rs. 1,850",
+    unit: "/ meter",
+    badge: "BEST SELLER",
   },
   {
-    name: "Smart Fitness Watch",
-    category: "Wearables",
-    price: "Rs. 12,499",
-    oldPrice: "Rs. 15,999",
-    badge: "Trending",
+    name: "Royal Cotton",
+    category: "Premium Cotton",
+    price: "Rs. 1,450",
+    unit: "/ meter",
+    badge: "POPULAR",
   },
   {
-    name: "Mechanical RGB Keyboard",
-    category: "Gaming",
-    price: "Rs. 8,499",
-    oldPrice: "Rs. 10,999",
-    badge: "Hot Deal",
+    name: "Soft Premium Linen",
+    category: "Women's Fabric",
+    price: "Rs. 2,200",
+    unit: "/ meter",
+    badge: "NEW",
   },
   {
-    name: "Magnetic Fast Charger",
-    category: "Accessories",
-    price: "Rs. 3,299",
-    oldPrice: "Rs. 4,499",
-    badge: "New",
+    name: "Classic Khaddar",
+    category: "Winter Collection",
+    price: "Rs. 1,650",
+    unit: "/ meter",
+    badge: "FEATURED",
   },
 ];
 
@@ -46,126 +58,202 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main>
-        {/* Hero */}
-        <section className="hero-premium">
-          <div className="container hero-premium-inner">
-            <div className="hero-copy">
-              <span className="hero-kicker">SMART SHOPPING, SIMPLIFIED</span>
+      <main className="overflow-hidden bg-[#fbf8f4] text-[#3f3029]">
 
-              <h1 className="hero-title">
-                Find what you need.
-                <br />
-                <span>Buy with confidence.</span>
-              </h1>
+        {/* HERO */}
+        <section className="relative bg-[#f1e7df]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(109,76,65,0.13),transparent_30%),radial-gradient(circle_at_90%_30%,rgba(190,157,135,0.18),transparent_32%)]" />
 
-              <p className="hero-description">
-                Discover better products, compare your options and get
-                recommendations that fit your budget and needs.
-              </p>
+          <div className="container relative">
+            <div className="grid min-h-[650px] items-center gap-12 py-20 lg:grid-cols-[1fr_0.9fr] lg:py-24">
 
-              <div className="ai-search hero-search">
-                <span className="hero-search-icon">AI</span>
-                <input
-                  type="text"
-                  placeholder="What are you looking for?"
-                  aria-label="AI shopping search"
-                />
-                <button className="btn btn-primary">
-                  Search
-                </button>
-              </div>
+              {/* Copy */}
+              <div className="max-w-2xl">
+                <div className="mb-7 flex items-center gap-3">
+                  <span className="h-px w-10 bg-[#8b6a59]" />
 
-              <div className="hero-suggestions">
-                <span>Popular:</span>
-                <button>Gaming setup</button>
-                <button>Wireless earbuds</button>
-                <button>Smart watches</button>
-              </div>
-            </div>
+                  <span className="text-xs font-black uppercase tracking-[0.3em] text-[#806457]">
+                    KHALÉ FABRICS
+                  </span>
+                </div>
 
-            <div className="hero-showcase" aria-hidden="true">
-              <div className="showcase-card showcase-main">
-                <span className="showcase-label">TRENDING NOW</span>
-                <div className="showcase-product-shape">●</div>
-                <div>
-                  <strong>Smart picks</strong>
-                  <p>Selected for you</p>
+                <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.045em] text-[#4a342b] sm:text-6xl lg:text-[76px]">
+                  Fabrics made
+                  <br />
+                  <span className="font-serif italic font-medium text-[#896c5b]">
+                    for your style.
+                  </span>
+                </h1>
+
+                <p className="mt-7 max-w-xl text-lg leading-8 text-[#806f65] sm:text-xl">
+                  Discover premium fabrics selected for comfort, character
+                  and timeless style. From everyday essentials to refined
+                  occasion wear.
+                </p>
+
+                <div className="mt-9 flex flex-wrap gap-4">
+                  <Link
+                    href="/shop"
+                    className="shop-now-btn inline-flex"
+                  >
+                    Shop Collection
+                  </Link>
+
+                  <Link
+                    href="/fabrics"
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#cdb7a8] bg-[#fffaf6] px-6 text-sm font-bold text-[#6d4c41] transition-all hover:-translate-y-0.5 hover:bg-white"
+                  >
+                    Explore Fabrics
+                  </Link>
+                </div>
+
+                <div className="mt-9 flex flex-wrap gap-x-8 gap-y-3 text-xs font-bold uppercase tracking-wider text-[#9a8274]">
+                  <span>Premium Quality</span>
+                  <span>Sold by Meter</span>
+                  <span>Curated Collections</span>
                 </div>
               </div>
 
-              <div className="showcase-card showcase-small showcase-small-one">
-                <span>BEST VALUE</span>
-                <strong>Compare</strong>
-                <p>Before you buy</p>
-              </div>
+              {/* Editorial Visual */}
+              <div className="relative mx-auto hidden h-[520px] w-full max-w-[500px] lg:block">
 
-              <div className="showcase-card showcase-small showcase-small-two">
-                <span>AI POWERED</span>
-                <strong>Better choices</strong>
-                <p>Less guesswork</p>
+                <div className="absolute right-4 top-4 h-[430px] w-[310px] rotate-[7deg] rounded-[34px] bg-[#b99b88] shadow-2xl" />
+
+                <div className="absolute right-16 top-9 h-[445px] w-[315px] rotate-[-5deg] rounded-[34px] bg-[#795548] shadow-2xl shadow-[#5d4037]/25" />
+
+                <div className="absolute right-20 top-0 h-[455px] w-[320px] overflow-hidden rounded-[34px] bg-[#fffaf5] p-7 shadow-2xl">
+
+                  <div className="flex h-full flex-col justify-between">
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#987968]">
+                        New Collection
+                      </span>
+
+                      <span className="rounded-full bg-[#f0e4db] px-3 py-1 text-[9px] font-black text-[#765548]">
+                        2026
+                      </span>
+                    </div>
+
+                    <div className="relative mx-auto h-64 w-full overflow-hidden rounded-[26px] bg-[linear-gradient(135deg,#dfcbbd,#f5ebe4_48%,#c9ae9c)]">
+                      <div className="absolute -left-12 top-10 h-72 w-48 rotate-[20deg] rounded-[45%] bg-[#8b6a59]/20" />
+
+                      <div className="absolute right-[-30px] top-[-20px] h-80 w-48 rotate-[-18deg] rounded-[45%] bg-[#fffaf5]/30" />
+
+                      <div className="relative flex h-full items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-7xl font-black tracking-[0.12em] text-[#806153]">
+                            K
+                          </div>
+
+                          <p className="mt-2 text-[9px] font-black uppercase tracking-[0.3em] text-[#927567]">
+                            KHALÉ FABRICS
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#a38d80]">
+                        Premium Textile
+                      </p>
+
+                      <h2 className="mt-2 text-3xl font-black tracking-tight text-[#4a342b]">
+                        Timeless
+                        <br />
+                        <span className="font-serif italic font-medium text-[#8b6a59]">
+                          by nature.
+                        </span>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Categories */}
+        {/* COLLECTIONS */}
         <section className="section">
           <div className="container">
-            <div className="flex items-end justify-between gap-6">
+
+            <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
               <div>
-                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-600">
-                  Explore
+                <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#9a7866]">
+                  Collections
                 </p>
 
-                <h2 className="heading-md">Shop by category</h2>
+                <h2 className="text-4xl font-black tracking-tight text-[#49342b] sm:text-5xl">
+                  Find your fabric.
+                </h2>
               </div>
 
               <Link
-                href="/categories"
-                className="hidden text-sm font-bold text-blue-600 sm:block"
+                href="/fabrics"
+                className="text-sm font-bold text-[#765548] hover:text-[#4e382f]"
               >
                 View all →
               </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-              {categories.map((category) => (
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {collections.map((collection, index) => (
                 <Link
-                  key={category.name}
-                  href={`/categories/${category.name
-                    .toLowerCase()
-                    .replaceAll(" ", "-")}`}
-                  className="card group flex min-h-36 flex-col justify-between p-5"
+                  key={collection.title}
+                  href={collection.href}
+                  className="group relative min-h-[330px] overflow-hidden rounded-[30px] border border-[#e4d8cf] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
-                    {category.icon}
-                  </span>
+                  <div
+                    className={`absolute inset-0 ${collection.tone} transition-transform duration-500 group-hover:scale-105`}
+                  />
 
-                  <span className="text-sm font-bold text-slate-900">
-                    {category.name}
-                  </span>
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(50,35,29,0.58),transparent_65%)]" />
+
+                  <div className="absolute right-7 top-7 flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/20 text-sm font-black text-white backdrop-blur">
+                    0{index + 1}
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
+                    <p className="mb-2 text-[10px] font-black uppercase tracking-[0.25em] text-white/70">
+                      KHALÉ
+                    </p>
+
+                    <h3 className="text-2xl font-black">
+                      {collection.title}
+                    </h3>
+
+                    <p className="mt-2 max-w-xs text-sm leading-6 text-white/75">
+                      {collection.subtitle}
+                    </p>
+
+                    <span className="mt-5 inline-block text-sm font-bold">
+                      Explore collection →
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Products */}
-        <section className="section bg-white">
+        {/* FEATURED PRODUCTS */}
+        <section className="section bg-[#fffdf9]">
           <div className="container">
-            <div className="flex items-end justify-between gap-6">
+
+            <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
               <div>
-                <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-600">
-                  Trending now
+                <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#9a7866]">
+                  Curated For You
                 </p>
 
-                <h2 className="heading-md">Popular products</h2>
+                <h2 className="text-4xl font-black tracking-tight text-[#49342b] sm:text-5xl">
+                  Featured fabrics.
+                </h2>
               </div>
 
               <Link
                 href="/shop"
-                className="hidden text-sm font-bold text-blue-600 sm:block"
+                className="text-sm font-bold text-[#765548] hover:text-[#4e382f]"
               >
                 Shop all →
               </Link>
@@ -175,40 +263,54 @@ export default function Home() {
               {products.map((product) => (
                 <article
                   key={product.name}
-                  className="card product-card overflow-hidden"
+                  className="group overflow-hidden rounded-[26px] border border-[#e8ddd5] bg-[#fffaf6] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="product-image">
-                    <div className="absolute left-4 top-4 z-10">
-                      <span className="badge badge-primary">
-                        {product.badge}
-                      </span>
-                    </div>
+                  <div className="relative aspect-[4/4.5] overflow-hidden bg-[#eee2d9]">
 
-                    <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-100 via-blue-50 to-violet-50 text-5xl text-slate-300">
-                      â—ˆ
+                    <span className="absolute left-4 top-4 z-10 rounded-full bg-[#fffaf5]/90 px-3 py-1.5 text-[9px] font-black tracking-wider text-[#765548] backdrop-blur">
+                      {product.badge}
+                    </span>
+
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,#dfcbbd,#f8eee8_45%,#c7aa97)] transition-transform duration-500 group-hover:scale-105" />
+
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-6xl font-black tracking-[0.16em] text-[#9a7968]">
+                          K
+                        </div>
+
+                        <p className="mt-2 text-[9px] font-black uppercase tracking-[0.25em] text-[#a28b7d]">
+                          KHALÉ FABRICS
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="product-info">
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <div className="p-6">
+                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#a18b7d]">
                       {product.category}
                     </p>
 
-                    <h3 className="product-title">{product.name}</h3>
+                    <h3 className="mt-2 text-lg font-black text-[#49342b]">
+                      {product.name}
+                    </h3>
 
-                    <div className="mt-4">
-                      <span className="product-price">
+                    <div className="mt-4 flex items-baseline gap-2">
+                      <span className="text-xl font-black text-[#6d4c41]">
                         {product.price}
                       </span>
 
-                      <span className="product-old-price">
-                        {product.oldPrice}
+                      <span className="text-xs font-semibold text-[#a28e81]">
+                        {product.unit}
                       </span>
                     </div>
 
-                    <button className="btn btn-primary mt-5 w-full">
-                      Add to cart
-                    </button>
+                    <Link
+                      href="/shop"
+                      className="mt-5 flex min-h-11 items-center justify-center rounded-xl bg-[#f0e3d8] text-sm font-bold text-[#6d4c41] transition-all hover:bg-[#6d4c41] hover:text-white"
+                    >
+                      View Fabric
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -216,100 +318,139 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AI Recommendation */}
+        {/* BRAND STORY */}
         <section className="section">
           <div className="container">
-            <div className="overflow-hidden rounded-[32px] bg-slate-950">
-              <div className="relative px-7 py-14 sm:px-12 lg:px-16">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(124,58,237,0.3),transparent_35%)]" />
+            <div className="relative overflow-hidden rounded-[34px] bg-[#4f3930]">
 
-                <div className="relative max-w-2xl">
-                  <span className="text-sm font-bold uppercase tracking-widest text-blue-300">
-                    AI Smart recommendations
-                  </span>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(218,190,170,0.25),transparent_32%)]" />
 
-                  <h2 className="heading-lg mt-5 text-white">
-                    Your next great find is closer than you think.
+              <div className="relative grid items-center gap-12 px-7 py-16 sm:px-12 lg:grid-cols-[1fr_0.7fr] lg:px-16 lg:py-20">
+
+                <div className="max-w-2xl">
+                  <p className="text-xs font-black uppercase tracking-[0.28em] text-[#d8bdab]">
+                    The KHALÉ Story
+                  </p>
+
+                  <h2 className="mt-5 text-4xl font-black leading-tight tracking-tight text-[#fffaf6] sm:text-5xl">
+                    We believe great style
+                    <br />
+                    <span className="font-serif italic font-medium text-[#d9bdaa]">
+                      starts with great fabric.
+                    </span>
                   </h2>
 
-                  <p className="mt-6 text-lg leading-8 text-slate-300">
-                    Our future AI assistant will understand your budget,
-                    preferences and needs to help you discover products that
-                    actually fit you.
+                  <p className="mt-6 max-w-xl text-lg leading-8 text-[#d8c7bd]">
+                    Every collection is chosen with attention to texture,
+                    comfort and character. Simple pieces, beautiful materials
+                    and quality you can feel.
                   </p>
 
                   <Link
-                    href="/assistant"
-                    className="btn btn-primary mt-8"
+                    href="/about"
+                    className="mt-8 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#fffaf6] px-6 text-sm font-bold text-[#5d4037] transition-all hover:-translate-y-1 hover:bg-white"
                   >
-                    Explore AI Assistant →
+                    About KHALÉ
                   </Link>
                 </div>
+
+                <div className="mx-auto flex h-64 w-64 items-center justify-center rounded-full border border-[#c7a995]/40 bg-[#705247] shadow-2xl">
+                  <div className="text-center text-[#fffaf6]">
+                    <div className="text-7xl font-black tracking-widest">
+                      K
+                    </div>
+
+                    <p className="mt-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#d9bdab]">
+                      KHALÉ FABRICS
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </section>
 
-        {/* Trust */}
-        <section className="section bg-white">
+        {/* BENEFITS */}
+        <section className="section bg-[#fffdf9]">
           <div className="container">
+
             <div className="grid gap-5 md:grid-cols-3">
               {[
                 {
-                  title: "Smart discovery",
-                  text: "Find products faster with intelligent search and recommendations.",
+                  title: "Premium Quality",
+                  text: "Carefully selected fabrics with comfort, finish and durability in mind.",
                 },
                 {
-                  title: "Transparent pricing",
-                  text: "Compare prices and discover better value before you buy.",
+                  title: "Fair Pricing",
+                  text: "Simple and transparent pricing with clear per-meter prices.",
                 },
                 {
-                  title: "Easy ordering",
-                  text: "Shop online or connect directly through WhatsApp.",
+                  title: "Easy Ordering",
+                  text: "Choose your fabric, select your quantity and order with ease.",
                 },
-              ].map((item) => (
-                <div key={item.title} className="card p-7">
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                    âœ“
+              ].map((item, index) => (
+                <div
+                  key={item.title}
+                  className="rounded-[25px] border border-[#e8ddd5] bg-[#fffaf6] p-7"
+                >
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#f0e3d8] text-sm font-black text-[#6d4c41]">
+                    0{index + 1}
                   </div>
 
-                  <h3 className="text-lg font-extrabold text-slate-950">
+                  <h3 className="text-lg font-black text-[#49342b]">
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 leading-7 text-slate-500">
+                  <p className="mt-3 leading-7 text-[#806f65]">
                     {item.text}
                   </p>
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* CTA */}
+        {/* FINAL CTA */}
         <section className="section">
           <div className="container">
-            <div className="rounded-[32px] bg-gradient-to-br from-blue-600 to-violet-600 px-7 py-16 text-center text-white sm:px-12">
-              <h2 className="heading-lg">
-                Ready to shop smarter?
-              </h2>
 
-              <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-blue-50">
-                Discover products, compare options and find what fits you
-                best.
-              </p>
+            <div className="relative overflow-hidden rounded-[34px] bg-[#eadbd0] px-7 py-16 text-center sm:px-12">
 
-              <Link
-                href="/shop"
-                className="mt-8 inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-7 font-bold text-blue-700 transition-transform hover:-translate-y-1"
-              >
-                Start Shopping
-              </Link>
+              <div className="absolute left-1/2 top-0 h-56 w-56 -translate-x-1/2 rounded-full bg-[#fffaf6]/30 blur-3xl" />
+
+              <div className="relative">
+                <p className="text-xs font-black uppercase tracking-[0.3em] text-[#987765]">
+                  KHALÉ FABRICS
+                </p>
+
+                <h2 className="mt-4 text-4xl font-black tracking-tight text-[#49342b] sm:text-5xl">
+                  Your next favourite fabric
+                  <br />
+                  <span className="font-serif italic font-medium text-[#806153]">
+                    is waiting.
+                  </span>
+                </h2>
+
+                <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-[#806f65]">
+                  Explore our collections and find something made for your
+                  style.
+                </p>
+
+                <Link
+                  href="/shop"
+                  className="shop-now-btn mt-8 inline-flex"
+                >
+                  Shop Now
+                </Link>
+              </div>
+
             </div>
           </div>
         </section>
+
       </main>
     </>
   );
 }
-

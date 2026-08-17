@@ -1,51 +1,42 @@
 import Link from "next/link";
 
 const navItems = [
-  { label: "Shop", href: "/shop" },
-  { label: "Categories", href: "/categories" },
-  { label: "AI Assistant", href: "/assistant" },
+  { label: "Home", href: "/" },
+  { label: "Men", href: "/men" },
+  { label: "Women", href: "/women" },
+  { label: "Fabrics", href: "/fabrics" },
+  { label: "New Arrivals", href: "/new-arrivals" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
       <div className="container">
-        <div className="flex min-h-[76px] items-center justify-between gap-6">
+        <div className="flex min-h-[82px] items-center justify-between gap-6">
+
           {/* Brand */}
           <Link
             href="/"
-            className="group flex shrink-0 items-center gap-3"
+            className="group shrink-0"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-violet-600 text-lg font-black text-white shadow-lg shadow-blue-500/20 transition-transform duration-200 group-hover:-translate-y-0.5">
-              AI
-            </span>
+            <div className="text-[20px] font-black tracking-[0.08em] text-slate-950">
+              KHALÉ
+              <span className="text-slate-500"> FABRICS</span>
+            </div>
 
-            <div className="leading-none">
-              <div className="text-[17px] font-black tracking-tight text-slate-950">
-                Smart
-                <span className="gradient-text"> Commerce</span>
-              </div>
-
-              <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                Shop smarter
-              </div>
+            <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.28em] text-slate-400">
+              Premium Fabrics & Clothing
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-1 rounded-2xl border border-slate-200 bg-slate-50/70 p-1 md:flex">
-            <Link
-              href="/"
-              className="rounded-xl px-4 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:bg-white hover:text-blue-600"
-            >
-              Home
-            </Link>
-
+          <nav className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-xl px-4 py-2.5 text-sm font-bold text-slate-600 transition-colors hover:bg-white hover:text-blue-600"
+                className="rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-600 transition-all hover:bg-slate-100 hover:text-slate-950"
               >
                 {item.label}
               </Link>
@@ -54,14 +45,38 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
+
+            {/* Search */}
+            <button
+              type="button"
+              aria-label="Search"
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-950"
+            >
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-4-4" />
+              </svg>
+            </button>
+
+            {/* Cart */}
             <Link
               href="/cart"
               aria-label="Shopping cart"
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600"
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-950"
             >
               <svg
-                width="20"
-                height="20"
+                width="19"
+                height="19"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -76,13 +91,15 @@ export default function Navbar() {
               </svg>
             </Link>
 
+            {/* Shop Button */}
             <Link
               href="/shop"
-              className="btn btn-primary hidden sm:inline-flex"
+              className="shop-now-btn hidden sm:inline-flex"
             >
-              Start Shopping
+              Shop Now
             </Link>
 
+            {/* Mobile Menu */}
             <button
               type="button"
               aria-label="Open menu"
@@ -104,6 +121,7 @@ export default function Navbar() {
                 <line x1="4" y1="18" x2="20" y2="18" />
               </svg>
             </button>
+
           </div>
         </div>
       </div>

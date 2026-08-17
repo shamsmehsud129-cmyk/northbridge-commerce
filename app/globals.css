@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7fa;
-  --foreground: #111827;
+  --background: #f8f4ee;
+  --foreground: #3b2923;
 
-  --surface: #ffffff;
-  --surface-soft: #f1f5f9;
-  --surface-dark: #111827;
+  --surface: #fffdf9;
+  --surface-soft: #f2ebe3;
+  --surface-dark: #4a332b;
 
-  --primary: #155eef;
-  --primary-dark: #1d4ed8;
-  --secondary: #2563eb;
+  --primary: #795548;
+  --primary-dark: #5d4037;
+  --secondary: #a67c63;
 
-  --text-primary: #0b1220;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
+  --text-primary: #3b2923;
+  --text-secondary: #806f65;
+  --text-muted: #a99a91;
 
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
+  --border: #e7ddd4;
+  --border-strong: #d8c9bd;
 
-  --success: #16a34a;
-  --danger: #dc2626;
-  --warning: #f59e0b;
+  --success: #6f8061;
+  --danger: #b85c55;
+  --warning: #b58a55;
 
   --radius-sm: 10px;
   --radius-md: 16px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
 
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
+  --shadow-sm: 0 1px 2px rgba(74, 51, 43, 0.05);
+  --shadow-md: 0 10px 30px rgba(74, 51, 43, 0.08);
+  --shadow-lg: 0 20px 60px rgba(74, 51, 43, 0.12);
 }
 
 * {
@@ -43,8 +43,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--cream-light);
+  color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -70,352 +70,1130 @@ img {
   display: block;
 }
 
-/* ------------------------------
-   Layout
------------------------------- */
-
 .container {
-  width: min(1200px, calc(100% - 40px));
+  width: min(1240px, calc(100% - 48px));
   margin-inline: auto;
 }
 
-.section {
-  padding: 96px 0;
+/* --------------------------------
+   NAVBAR
+-------------------------------- */
+
+.kale-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(222, 215, 202, 0.9);
+  background: rgba(255, 253, 249, 0.94);
+  backdrop-filter: blur(18px);
 }
 
-.section-sm {
-  padding: 64px 0;
+.kale-navbar-inner {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
 }
 
-/* ------------------------------
-   Typography
------------------------------- */
-
-.heading-xl {
-  font-size: clamp(2.8rem, 7vw, 5.8rem);
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-  font-weight: 800;
-}
-
-.heading-lg {
-  font-size: clamp(2.2rem, 5vw, 4rem);
+.kale-brand {
+  display: flex;
+  flex-direction: column;
   line-height: 1;
-  letter-spacing: -0.045em;
-  font-weight: 800;
+  flex-shrink: 0;
 }
 
-.heading-md {
-  font-size: clamp(1.6rem, 3vw, 2.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  font-weight: 750;
+.kale-brand-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
 }
 
-.body-lg {
-  font-size: 1.125rem;
-  line-height: 1.7;
+.kale-brand-subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  padding-left: 2px;
 }
 
-.text-muted {
-  color: var(--text-secondary);
+.kale-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(246, 241, 232, 0.65);
 }
 
-/* ------------------------------
-   Gradient
------------------------------- */
-
-.gradient-text {
-  background: linear-gradient(
-    100deg,
-    var(--primary),
-    var(--secondary)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.kale-nav-link {
+  padding: 10px 14px;
+  border-radius: 11px;
+  color: #5f594f;
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    color 180ms ease,
+    background 180ms ease;
 }
 
-.gradient-surface {
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(37, 99, 235, 0.16),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 80% 30%,
-      rgba(124, 58, 237, 0.14),
-      transparent 35%
-    ),
-    var(--surface-dark);
+.kale-nav-link:hover {
+  color: var(--ink);
+  background: var(--paper);
 }
 
-/* ------------------------------
-   Buttons
------------------------------- */
+.kale-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.btn {
+.kale-cart {
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--paper);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
 
-  min-height: 46px;
-  padding: 0 20px;
+.kale-cart:hover {
+  transform: translateY(-2px);
+  border-color: var(--brown);
+}
 
-  border: 0;
-  border-radius: var(--radius-md);
-
-  font-size: 0.95rem;
-  font-weight: 700;
-
+.kale-nav-button,
+.kale-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 23px;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
     background 180ms ease;
 }
 
-.btn:hover {
+.kale-nav-button:hover,
+.kale-button:hover {
   transform: translateY(-2px);
 }
 
-.btn-primary {
-  color: white;
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary)
-  );
-
-  box-shadow:
-    0 10px 25px rgba(37, 99, 235, 0.22);
+.kale-nav-button {
+  color: var(--white);
+  background: var(--ink);
 }
 
-.btn-primary:hover {
-  box-shadow:
-    0 14px 32px rgba(37, 99, 235, 0.3);
+.kale-button-dark {
+  color: var(--white);
+  background: var(--ink);
+  box-shadow: 0 12px 28px rgba(23, 22, 20, 0.15);
 }
 
-.btn-secondary {
-  color: var(--text-primary);
-  background: white;
-  border: 1px solid var(--border);
+.kale-button-dark:hover {
+  box-shadow: 0 16px 35px rgba(23, 22, 20, 0.2);
 }
 
-.btn-secondary:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-sm);
+.kale-button-light {
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* ------------------------------
-   Cards
------------------------------- */
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-
-  transition:
-    transform 200ms ease,
-    box-shadow 200ms ease,
-    border-color 200ms ease;
+.kale-button-light:hover {
+  background: var(--white);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(37, 99, 235, 0.25);
-  box-shadow: var(--shadow-md);
-}
+/* --------------------------------
+   HERO
+-------------------------------- */
 
-/* ------------------------------
-   Inputs
------------------------------- */
-
-.input {
-  width: 100%;
-  min-height: 48px;
-
-  padding: 0 16px;
-
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-
-  outline: none;
-
-  background: white;
-  color: var(--text-primary);
-
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.input:focus {
-  border-color: var(--primary);
-
-  box-shadow:
-    0 0 0 4px rgba(37, 99, 235, 0.1);
-}
-
-/* ------------------------------
-   AI Search
------------------------------- */
-
-.ai-search {
+.kale-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 690px;
   display: flex;
   align-items: center;
-  gap: 12px;
-
-  width: 100%;
-  min-height: 64px;
-
-  padding: 8px 10px 8px 20px;
-
-  background: white;
-
-  border: 1px solid rgba(37, 99, 235, 0.18);
-  border-radius: 20px;
-
-  box-shadow:
-    0 20px 60px rgba(15, 23, 42, 0.1);
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(160, 139, 105, 0.18),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #e9e0d1 0%, #f7f2e9 55%, #e3d9c9 100%);
 }
 
-.ai-search input {
-  flex: 1;
-  min-width: 0;
-
-  border: 0;
-  outline: 0;
-
-  background: transparent;
+.kale-hero::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  right: -180px;
+  top: -170px;
+  border: 1px solid rgba(95, 78, 58, 0.12);
+  border-radius: 50%;
 }
 
-/* ------------------------------
-   Product Card
------------------------------- */
-
-.product-card {
-  overflow: hidden;
+.kale-hero::after {
+  content: "";
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  right: -70px;
+  bottom: -220px;
+  border: 1px solid rgba(95, 78, 58, 0.1);
+  border-radius: 50%;
 }
 
-.product-image {
+.kale-hero-grid {
   position: relative;
-  aspect-ratio: 1 / 1;
-
-  overflow: hidden;
-
-  background: var(--surface-soft);
+  z-index: 2;
+  min-height: 690px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 0.82fr;
+  align-items: center;
+  gap: 70px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  transition: transform 350ms ease;
+.kale-hero-copy {
+  max-width: 680px;
 }
 
-.product-card:hover .product-image img {
-  transform: scale(1.045);
+.kale-eyebrow {
+  display: inline-block;
+  color: var(--brown);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
 }
 
-.product-info {
-  padding: 20px;
-}
-
-.product-title {
-  margin: 0;
-
-  font-size: 1rem;
-  line-height: 1.35;
+.kale-hero h1 {
+  margin: 22px 0 0;
+  max-width: 700px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.7rem, 7vw, 7.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
   font-weight: 700;
 }
 
-.product-price {
-  margin-top: 8px;
+.kale-hero h1 span {
+  color: var(--brown);
+  font-style: italic;
+}
 
-  font-size: 1.15rem;
+.kale-hero p {
+  max-width: 600px;
+  margin: 30px 0 0;
+  color: #625b51;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.kale-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.kale-hero-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 26px;
+  color: #746d62;
+  font-size: 11px;
   font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.product-old-price {
-  margin-left: 8px;
-
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  text-decoration: line-through;
+.kale-hero-note span {
+  position: relative;
 }
 
-/* ------------------------------
-   Badge
------------------------------- */
+.kale-hero-note span:not(:last-child)::after {
+  content: "•";
+  position: absolute;
+  right: -13px;
+  color: #b0a694;
+}
 
-.badge {
+.kale-hero-visual {
+  position: relative;
+  min-height: 510px;
+}
+
+.fabric-card {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-card);
+}
+
+.fabric-card-main {
+  inset: 45px 30px 35px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 42px;
+  overflow: hidden;
+  border-radius: 38px;
+  color: #f8f4eb;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(27, 25, 22, 0.95),
+      rgba(78, 67, 53, 0.9)
+    );
+}
+
+.fabric-card-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 11px,
+      rgba(255, 255, 255, 0.06) 12px,
+      transparent 13px
+    );
+}
+
+.fabric-card-main::after {
+  content: "";
+  position: absolute;
+  width: 270px;
+  height: 500px;
+  right: -50px;
+  top: -90px;
+  border-radius: 50%;
+  transform: rotate(22deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.14),
+    rgba(0, 0, 0, 0.12)
+  );
+}
+
+.fabric-card-main span,
+.fabric-card-main strong,
+.fabric-card-main small {
+  position: relative;
+  z-index: 2;
+}
+
+.fabric-card-main span {
+  margin-bottom: auto;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #cfc6b7;
+}
+
+.fabric-card-main strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 62px;
+  letter-spacing: 0.08em;
+}
+
+.fabric-card-main small {
+  margin-top: 5px;
+  color: #c9c0b2;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.fabric-card-small {
+  z-index: 3;
+  width: 175px;
+  min-height: 135px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px;
+  border-radius: 22px;
+  background: rgba(255, 253, 249, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.fabric-card-small span {
+  color: var(--brown);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.fabric-card-small strong {
+  margin-top: 7px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.fabric-card-top {
+  top: 0;
+  right: 0;
+}
+
+.fabric-card-bottom {
+  bottom: 0;
+  left: 0;
+}
+
+/* --------------------------------
+   INTRO
+-------------------------------- */
+
+.kale-intro {
+  padding: 120px 0;
+  background: var(--paper);
+}
+
+.kale-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 100px;
+  align-items: end;
+}
+
+.kale-intro h2,
+.kale-section-heading h2,
+.kale-trust-heading h2 {
+  margin: 16px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.kale-intro h2 em {
+  color: var(--brown);
+  font-style: italic;
+}
+
+.kale-intro-grid > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* --------------------------------
+   SECTIONS
+-------------------------------- */
+
+.kale-section {
+  padding: 110px 0;
+  background: var(--cream);
+}
+
+.kale-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.kale-section-heading h2 {
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+}
+
+.kale-text-link {
+  position: relative;
+  padding-bottom: 7px;
+  color: var(--brown-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.kale-text-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.kale-text-link:hover::after {
+  transform: scaleX(0.55);
+}
+
+.kale-collections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 52px;
+}
+
+.kale-collection-card {
+  position: relative;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 34px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.kale-collection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+}
+
+.kale-collection-card:nth-child(2) {
+  background: #eee6dc;
+}
+
+.kale-collection-card:nth-child(3) {
+  background: #e9e4d8;
+}
+
+.kale-collection-card:nth-child(4) {
+  background: #e4e1d7;
+}
+
+.kale-collection-mark {
+  width: 50px;
+  height: 50px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  border: 1px solid #cfc6b7;
+  border-radius: 50%;
+  color: var(--brown-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
 
-  min-height: 28px;
-  padding: 0 10px;
+.kale-collection-card h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  letter-spacing: -0.025em;
+}
 
-  border-radius: 999px;
+.kale-collection-card p {
+  max-width: 430px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
 
-  font-size: 0.75rem;
+.kale-arrow {
+  position: absolute;
+  right: 30px;
+  bottom: 28px;
+  color: var(--brown-dark);
+  font-size: 20px;
+}
+
+/* --------------------------------
+   PRODUCTS
+-------------------------------- */
+
+.kale-products {
+  padding: 110px 0;
+  background: var(--paper);
+}
+
+.kale-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 52px;
+}
+
+.kale-product {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.kale-product:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+}
+
+.kale-product-visual {
+  position: relative;
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kale-product-visual::before {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  opacity: 0.6;
+  background:
+    repeating-linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.18) 0,
+      rgba(255, 255, 255, 0.18) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+  transform: rotate(3deg);
+}
+
+.kale-product-visual.dark {
+  background: linear-gradient(145deg, #24211d, #5a5043);
+}
+
+.kale-product-visual.cream {
+  background: linear-gradient(145deg, #e8dfd0, #f7f0e5);
+}
+
+.kale-product-visual.rose {
+  background: linear-gradient(145deg, #d8c0bb, #eee0d8);
+}
+
+.kale-product-visual.olive {
+  background: linear-gradient(145deg, #777761, #b3ae8f);
+}
+
+.kale-product-visual > span {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: #3e352a;
+  background: rgba(255, 253, 249, 0.88);
+  font-size: 9px;
   font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
-.badge-primary {
-  color: var(--primary-dark);
-  background: rgba(37, 99, 235, 0.1);
+.fabric-fold {
+  position: relative;
+  z-index: 2;
+  width: 160px;
+  height: 205px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  letter-spacing: 0.12em;
+  transform: rotate(-7deg);
+  box-shadow: 20px 20px 35px rgba(30, 25, 20, 0.18);
+  background:
+    linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.12),
+      transparent 30%,
+      rgba(0, 0, 0, 0.12)
+    );
 }
 
-.badge-success {
-  color: #15803d;
-  background: rgba(22, 163, 74, 0.1);
+.kale-product-info {
+  padding: 23px;
 }
 
-/* ------------------------------
-   Animations
------------------------------- */
+.kale-product-info > p {
+  margin: 0;
+  color: #91897c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+.kale-product-info h3 {
+  margin: 9px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.kale-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.kale-product-bottom strong {
+  font-size: 14px;
+}
+
+.kale-product-bottom a {
+  color: var(--brown-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------
+   THAAN
+-------------------------------- */
+
+.kale-thaan {
+  padding: 110px 0;
+  background: var(--cream);
+}
+
+.kale-thaan-inner {
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 70px;
+  border-radius: 34px;
+  color: #f9f5ed;
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(183, 161, 125, 0.25),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #1c1a17, #3d362d);
+}
+
+.kale-thaan-inner::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -100px;
+  top: -150px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.kale-thaan-inner .kale-eyebrow {
+  color: #bdae99;
+}
+
+.kale-thaan-inner h2 {
+  position: relative;
+  z-index: 2;
+  margin: 18px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.kale-thaan-inner h2 span {
+  color: #bcae99;
+  font-style: italic;
+}
+
+.kale-thaan-inner p {
+  position: relative;
+  z-index: 2;
+  max-width: 590px;
+  margin: 25px 0 32px;
+  color: #c8c0b4;
+  line-height: 1.8;
+}
+
+.kale-thaan-badge {
+  position: relative;
+  z-index: 2;
+  width: 190px;
+  height: 190px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  transform: rotate(8deg);
+}
+
+.kale-thaan-badge strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 56px;
+  font-weight: 400;
+}
+
+.kale-thaan-badge span {
+  color: #bdae99;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --------------------------------
+   TRUST
+-------------------------------- */
+
+.kale-trust {
+  padding: 120px 0;
+  background: var(--paper);
+}
+
+.kale-trust-heading {
+  max-width: 800px;
+}
+
+.kale-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 70px;
+  border-top: 1px solid var(--line);
+}
+
+.kale-trust-grid > div {
+  min-height: 240px;
+  padding: 35px 40px 35px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.kale-trust-grid > div + div {
+  padding-left: 40px;
+  border-left: 1px solid var(--line);
+}
+
+.kale-trust-grid span {
+  color: #a79b89;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.kale-trust-grid h3 {
+  margin: 35px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+}
+
+.kale-trust-grid p {
+  max-width: 300px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* --------------------------------
+   CTA
+-------------------------------- */
+
+.kale-cta {
+  padding: 0 0 110px;
+  background: var(--paper);
+}
+
+.kale-cta-inner {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 30px;
+  border-radius: 34px;
+  color: #f9f5ed;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(177, 151, 113, 0.28),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #201d19, #514638);
+}
+
+.kale-cta-inner::before,
+.kale-cta-inner::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.kale-cta-inner::before {
+  width: 500px;
+  height: 500px;
+  left: -230px;
+  top: -240px;
+}
+
+.kale-cta-inner::after {
+  width: 420px;
+  height: 420px;
+  right: -200px;
+  bottom: -220px;
+}
+
+.kale-cta-inner > * {
+  position: relative;
+  z-index: 2;
+}
+
+.kale-cta-inner .kale-eyebrow {
+  color: #c6b79f;
+}
+
+.kale-cta-inner h2 {
+  margin: 18px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.4rem, 7vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.kale-cta-inner p {
+  max-width: 520px;
+  margin: 25px auto 0;
+  color: #c9c0b3;
+  line-height: 1.8;
+}
+
+/* --------------------------------
+   RESPONSIVE
+-------------------------------- */
+
+@media (max-width: 1050px) {
+  .kale-nav {
+    display: none;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .kale-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .kale-hero-copy {
+    max-width: 850px;
+  }
+
+  .kale-hero-visual {
+    min-height: 430px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .kale-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kale-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
   }
 }
 
-.animate-fade-up {
-  animation: fade-up 600ms ease both;
-}
-
-/* ------------------------------
-   Responsive
------------------------------- */
-
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .container {
-    width: min(100% - 28px, 1200px);
+    width: min(100% - 32px, 1240px);
   }
 
-  .section {
-    padding: 64px 0;
+  .kale-navbar-inner {
+    min-height: 72px;
   }
 
-  .section-sm {
-    padding: 48px 0;
+  .kale-nav-button {
+    display: none;
   }
 
-  .ai-search {
-    min-height: 58px;
-    border-radius: 16px;
+  .kale-brand-name {
+    font-size: 22px;
+  }
+
+  .kale-hero {
+    min-height: auto;
+  }
+
+  .kale-hero-grid {
+    min-height: auto;
+    padding-top: 85px;
+    padding-bottom: 75px;
+  }
+
+  .kale-hero h1 {
+    font-size: clamp(3.1rem, 15vw, 5rem);
+  }
+
+  .kale-hero p {
+    font-size: 15px;
+  }
+
+  .kale-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kale-button {
+    width: 100%;
+  }
+
+  .kale-hero-visual {
+    min-height: 360px;
+  }
+
+  .fabric-card-main {
+    inset: 30px 15px 30px 15px;
+    padding: 28px;
+    border-radius: 28px;
+  }
+
+  .fabric-card-main strong {
+    font-size: 43px;
+  }
+
+  .fabric-card-small {
+    width: 135px;
+    min-height: 105px;
+    padding: 18px;
+  }
+
+  .fabric-card-top {
+    right: -2px;
+  }
+
+  .fabric-card-bottom {
+    left: -2px;
+  }
+
+  .kale-intro,
+  .kale-section,
+  .kale-products,
+  .kale-thaan,
+  .kale-trust {
+    padding: 78px 0;
+  }
+
+  .kale-section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .kale-collections {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+
+  .kale-collection-card {
+    min-height: 240px;
+  }
+
+  .kale-product-grid {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+
+  .kale-product-visual {
+    height: 300px;
+  }
+
+  .kale-thaan-inner {
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 42px 28px;
+    border-radius: 28px;
+  }
+
+  .kale-thaan-badge {
+    width: 145px;
+    height: 145px;
+    align-self: center;
+  }
+
+  .kale-trust-grid {
+    grid-template-columns: 1fr;
+    margin-top: 45px;
+  }
+
+  .kale-trust-grid > div,
+  .kale-trust-grid > div + div {
+    padding: 28px 0;
+    border-left: 0;
+  }
+
+  .kale-trust-grid > div:first-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .kale-cta {
+    padding-bottom: 75px;
+  }
+
+  .kale-cta-inner {
+    padding: 75px 24px;
+    border-radius: 28px;
+  }
+}
+
+@media (max-width: 430px) {
+  .kale-hero h1 {
+    font-size: 3rem;
+  }
+
+  .kale-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .kale-hero-visual {
+    min-height: 315px;
+  }
+
+  .fabric-card-main strong {
+    font-size: 34px;
+  }
+
+  .fabric-card-small {
+    width: 118px;
+    min-height: 92px;
+    padding: 15px;
+  }
+
+  .fabric-card-small strong {
+    font-size: 19px;
   }
 }
 
@@ -426,5 +1204,99 @@ img {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+.shop-now-btn {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border-radius: 12px;
+  background: #6d4c41;
+  color: #fffaf5 !important;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 6px 18px rgba(109, 76, 65, 0.16);
+  transition: all 180ms ease;
+}
+.shop-now-btn:hover {
+  background: #f0e3d8;
+  color: #6d4c41 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(109, 76, 65, 0.18);
+}
+.shop-now-btn:hover {
+  background: #374151;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(15, 23, 42, 0.16);
+}
+/* Mobile horizontal overflow fix */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 720px) {
+  .kale-hero {
+    overflow: hidden;
+  }
+
+  .kale-hero-visual,
+  .kale-thaan-inner,
+  .kale-cta-inner {
+    max-width: 100%;
+  }
+
+  .kale-hero-visual::before,
+  .kale-hero-visual::after,
+  .kale-thaan-inner::before,
+  .kale-thaan-inner::after,
+  .kale-cta-inner::before,
+  .kale-cta-inner::after {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .kale-hero-visual {
+    overflow: hidden;
+  }
+}
+/* Final mobile layout fix */
+@media (max-width: 720px) {
+  .shop-now-btn {
+    width: auto !important;
+    min-width: 150px;
+    max-width: 100%;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .kale-button,
+  .kale-nav-button {
+    max-width: 100%;
+  }
+
+  .kale-hero-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .kale-hero h1,
+  .kale-hero p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .shop-now-btn {
+    min-width: 145px;
   }
 }
